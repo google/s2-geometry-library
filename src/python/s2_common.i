@@ -383,7 +383,7 @@ class S2Point {
 %unignore S2CellId::Begin;
 %unignore S2CellId::End;
 %unignore S2CellId::FromFaceIJ(int, int, int);
-%unignore S2CellId::FromFacePosLevel(int, uint64, int);
+%unignore S2CellId::FromFacePosLevel(int, std::uint64_t, int);
 %unignore S2CellId::FromLatLng;
 %unignore S2CellId::FromPoint;
 %unignore S2CellId::FromToken(const std::string&);
@@ -426,7 +426,7 @@ class S2Point {
 %unignore S2CellUnion::GetCapBound() const;
 %unignore S2CellUnion::GetDifference;
 %unignore S2CellUnion::GetRectBound;
-%unignore S2CellUnion::Init(std::vector<uint64> const &);
+%unignore S2CellUnion::Init(std::vector<std::uint64_t> const &);
 %unignore S2CellUnion::Intersection;
 %unignore S2CellUnion::Intersects;
 %unignore S2CellUnion::IsNormalized;

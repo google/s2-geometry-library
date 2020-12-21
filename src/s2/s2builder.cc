@@ -422,7 +422,7 @@ namespace {
 class VertexIdEdgeVectorShape final : public S2Shape {
  public:
   // Requires that "edges" is constant for the lifetime of this object.
-  VertexIdEdgeVectorShape(const vector<pair<int32, int32>>& edges,
+  VertexIdEdgeVectorShape(const vector<pair<std::int32_t, std::int32_t>>& edges,
                           const vector<S2Point>& vertices)
       : edges_(edges), vertices_(vertices) {
   }
@@ -449,7 +449,7 @@ class VertexIdEdgeVectorShape final : public S2Shape {
  private:
   const S2Point& vertex(int i) const { return vertices_[i]; }
 
-  const vector<std::pair<int32, int32>>& edges_;
+  const vector<std::pair<std::int32_t, std::int32_t>>& edges_;
   const vector<S2Point>& vertices_;
 };
 }  // namespace

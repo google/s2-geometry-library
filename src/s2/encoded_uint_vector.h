@@ -89,8 +89,8 @@ class EncodedUintVector {
   template <int length> size_t lower_bound(T target) const;
 
   const char* data_;
-  uint32 size_;
-  uint8 len_;
+  std::uint32_t size_;
+  std::uint8_t len_;
 };
 
 // Encodes an unsigned integer in little-endian format using "length" bytes.
@@ -172,13 +172,13 @@ inline T GetUintWithLength(const char* ptr, int length) {
   T x = 0;
   ptr += length;
   if (sizeof(T) > 4 && (length & 4)) {
-    x = ABSL_INTERNAL_UNALIGNED_LOAD32(ptr -= sizeof(uint32));
+    x = ABSL_INTERNAL_UNALIGNED_LOAD32(ptr -= sizeof(std::uint32_t));
   }
   if (sizeof(T) > 2 && (length & 2)) {
-    x = (x << 16) + ABSL_INTERNAL_UNALIGNED_LOAD16(ptr -= sizeof(uint16));
+    x = (x << 16) + ABSL_INTERNAL_UNALIGNED_LOAD16(ptr -= sizeof(std::uint16_t));
   }
   if (sizeof(T) > 1 && (length & 1)) {
-    x = (x << 8) + static_cast<uint8>(*--ptr);
+    x = (x << 8) + static_cast<std::uint8_t>(*--ptr);
   }
   return x;
 }
@@ -209,7 +209,7 @@ void EncodeUintVector(absl::Span<const T> v, Encoder* encoder) {
 
   // Note that the multiplication is optimized into a bit shift.
   encoder->Ensure(Varint::kMax64 + v.size() * len);
-  uint64 size_len = (uint64{v.size()} * sizeof(T)) | (len - 1);
+  std::uint64_t size_len = (std::uint64_t{v.size()} * sizeof(T)) | (len - 1);
   encoder->put_varint64(size_len);
   for (auto x : v) {
     EncodeUintWithLength(x, len, encoder);
@@ -218,7 +218,7 @@ void EncodeUintVector(absl::Span<const T> v, Encoder* encoder) {
 
 template <class T>
 bool EncodedUintVector<T>::Init(Decoder* decoder) {
-  uint64 size_len;
+  std::uint64_t size_len;
   if (!decoder->get_varint64(&size_len)) return false;
   size_ = size_len / sizeof(T);  // Optimized into bit shift.
   len_ = (size_len & (sizeof(T) - 1)) + 1;

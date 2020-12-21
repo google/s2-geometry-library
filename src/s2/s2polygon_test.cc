@@ -2842,7 +2842,7 @@ class S2PolygonDecodeTest : public ::testing::Test {
     AppendRandomData();                 // junk to fill out the buffer
   }
 
-  int32 PickRandomCount() {
+  std::int32_t PickRandomCount() {
     if (random_.OneIn(10)) {
       return -1;
     }
@@ -2873,7 +2873,7 @@ class S2PolygonDecodeTest : public ::testing::Test {
   const int kMaxBytes = 256;
 
   // The data array.
-  absl::FixedArray<int8> data_array_;
+  absl::FixedArray<std::int8_t> data_array_;
 
   // Encoder that is used to put data into the array.
   Encoder encoder_;

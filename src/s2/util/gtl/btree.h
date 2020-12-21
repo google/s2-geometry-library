@@ -65,7 +65,6 @@
 #include <type_traits>
 #include <utility>
 
-#include "s2/base/integral_types.h"
 #include "s2/third_party/absl/base/macros.h"
 #include "s2/third_party/absl/container/internal/compressed_tuple.h"
 #include "s2/third_party/absl/container/internal/container_memory.h"
@@ -270,11 +269,11 @@ struct common_params {
   // ValueSize-values as will fit a node of TargetNodeSize bytes.
   using node_count_type =
       absl::conditional_t<(kNodeValueSpace / ValueSize >
-                           std::numeric_limits<uint8>::max()),
-                          uint16, uint8>;  // NOLINT
+                           std::numeric_limits<std::uint8_t>::max()),
+                          std::uint16_t, std::uint8_t>;  // NOLINT
   static_assert(kNodeValueSpace / ValueSize <=
-                    std::numeric_limits<uint16>::max(),
-                "uint16 is not big enough for node_count_type.");
+                    std::numeric_limits<std::uint16_t>::max(),
+                "std::uint16_t is not big enough for node_count_type.");
 };
 
 // A parameters structure for holding the type parameters for a btree_map.
