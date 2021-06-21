@@ -62,7 +62,7 @@ using std::string_view;
 //   is 32 bits in LP32, 64 bits in LP64, 64 bits in LLP64
 //   future changes intended
 //
-typedef string::difference_type stringpiece_ssize_type;
+typedef std::string::difference_type stringpiece_ssize_type;
 
 namespace absl {
 

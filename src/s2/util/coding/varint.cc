@@ -20,6 +20,8 @@
 
 #include "s2/base/integral_types.h"
 
+using std::string;
+
 #ifndef _MSC_VER
 const int Varint::kMax32;
 const int Varint::kMax64;

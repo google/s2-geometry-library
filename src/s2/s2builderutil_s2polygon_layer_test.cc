@@ -36,6 +36,7 @@ using s2builderutil::S2PolygonLayer;
 using s2textformat::MakePolylineOrDie;
 using std::map;
 using std::set;
+using std::string;
 using std::unique_ptr;
 using std::vector;
 

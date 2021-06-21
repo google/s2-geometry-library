@@ -22,6 +22,8 @@
 #include "s2/third_party/absl/strings/ascii.h"
 #include "s2/third_party/absl/strings/internal/resize_uninitialized.h"
 
+using std::string;
+
 namespace absl {
 
 AlphaNum::AlphaNum(Hex hex) {

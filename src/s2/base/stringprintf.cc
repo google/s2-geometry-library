@@ -29,6 +29,8 @@ enum { IS__MSC_VER = 1 };
 enum { IS__MSC_VER = 0 };
 #endif
 
+using std::string;
+
 void StringAppendV(string* dst, const char* format, va_list ap) {
   // First try with a small fixed size buffer
   static const int kSpaceLength = 1024;

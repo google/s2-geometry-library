@@ -19,6 +19,8 @@
 
 #include "s2/third_party/absl/strings/string_view.h"
 
+using std::string;
+
 // ----------------------------------------------------------------------
 // ReplaceCharacters
 //    Replaces any occurrence of any of the 'remove' *bytes*

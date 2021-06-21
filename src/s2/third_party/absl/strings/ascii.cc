@@ -14,6 +14,8 @@
 
 #include "s2/third_party/absl/strings/ascii.h"
 
+using std::string;
+
 namespace absl {
 namespace ascii_internal {
 

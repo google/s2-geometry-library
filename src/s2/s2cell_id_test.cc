@@ -39,6 +39,7 @@
 
 using S2::internal::kPosToOrientation;
 using std::fabs;
+using std::string;
 using std::min;
 using std::unordered_map;
 using std::vector;
